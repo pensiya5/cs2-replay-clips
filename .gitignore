@@ -1,0 +1,17 @@
+/target/
+/clips/
+/outputs/
+/data/
+episodes*.json
+.vscode/
+.idea/
+.env
+.env.*
+*.exe
+*.mp4
+*.webm
+*.mkv
+*.mov
+*.wav
+*.onnx
+*.pt

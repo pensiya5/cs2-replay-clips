@@ -1,0 +1,25 @@
+[package]
+name = "cs2-replay-clips"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.100"
+description = "Extract CS2 death episodes from AV1 WebM replays and export them to MP4 on Windows"
+license = "MIT"
+readme = "README.md"
+publish = false
+
+[features]
+default = ["asm"]
+asm = ["rav1d/asm"]
+
+[dependencies]
+serde_json = "1"
+
+[target.'cfg(windows)'.dependencies]
+libc = "0.2"
+lewton = { version = "=0.10.2", default-features = false }
+matroska-demuxer = "=0.8.1"
+opus-decoder = "=0.1.1"
+rav1d = { version = "=1.1.0", default-features = false, features = ["bitdepth_8", "bitdepth_16"] }
+tempfile = "3"
+windows = { version = "0.62", features = ["Win32_Media_MediaFoundation", "Win32_System_Com", "Win32_Foundation"] }
